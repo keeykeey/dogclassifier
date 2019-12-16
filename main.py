@@ -4,13 +4,21 @@ import numpy as np
 import pandas as pd
 import PIL import Image
 import os
-from collections import OrderdDict,defaultdict
+from collections import OrderedDict,defaultdict,Counter
+
+
+path = os.getcwd()
+
+class file_error():
+    pass
+
 
 
 def chooseDB():
-    
-
-    pass
+    if not os.path.exist('dogs-datas'):
+        raise file_error
+    else
+       pass
 
 def sample():
     pass
