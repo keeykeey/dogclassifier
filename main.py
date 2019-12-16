@@ -7,18 +7,18 @@ import os
 from collections import OrderedDict,defaultdict,Counter
 
 
-path = os.getcwd()
+img_path = os.getcwd()+'/dogs-datas/Images'
 
-class file_error():
+class FileError():
     pass
-
+    
 
 
 def chooseDB():
-    if not os.path.exist('dogs-datas'):
-        raise file_error
-    else
-       pass
+    try:
+        img_dir_list = os.listdir(img_path)
+    except:
+        raise FileErroe 
 
 def sample():
     pass
