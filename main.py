@@ -2,7 +2,7 @@
 
 import numpy as np
 import pandas as pd
-import PIL import Image
+from PIL import Image
 import os
 from collections import OrderedDict,defaultdict,Counter
 
@@ -25,10 +25,18 @@ def chooseDB(dog1,dog2):
         for i in range(len(img_dir_list)):
             if dog1  in img_dir_list[i]:
                 dog1_path = img_path + img_dir_list[i] 
-            else if dog2 in img_dir_list[i]:
+                checkpoint += 1
+            elif dog2 in img_dir_list[i]:
                 dog2_path = img_path + img_dir_list[i]    
+                checkpoint +=1
+        if checkpoint <2 :
+            print('We don\'t have {} or {} file in the directory <{}>'.format(dog1,dog2,img_path))
+ 
     except:
         raise FileErroe 
+
+    return dog1_path,dog2_path
+
 
 
 def sample():
