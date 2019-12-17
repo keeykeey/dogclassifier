@@ -9,20 +9,27 @@ from collections import OrderedDict,defaultdict,Counter
 
 img_path = os.getcwd()+'/dogs-datas/Images'
 
+
 class FileError():
     pass
     
 
-def chooseDB(kind,another_kind):
-'''
-dog1 : a kind of dog you want to classify from 'dog'
-dog2 :another kind of dog you want to classify from 'dog'  
-'''
+def chooseDB(dog1,dog2):
+    '''
+    dog1 : a kind of dog you want to classify from 'dog'
+    dog2 :another kind of dog you want to classify from 'dog'  
+    '''
+
     try:
         img_dir_list = os.listdir(img_path)
         for i in range(len(img_dir_list)):
             if (dog1 or dog2) in img_dir_list[i]:
-                dog1 = 
+                dog1_path = img_path + img_dir_list[i] 
+
+        ########20191216ここでストップして寝る。画像のあるファイルをゲットする部分。
+
+
+         
     except:
         raise FileErroe 
 
