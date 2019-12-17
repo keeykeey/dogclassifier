@@ -23,13 +23,10 @@ def chooseDB(dog1,dog2):
     try:
         img_dir_list = os.listdir(img_path)
         for i in range(len(img_dir_list)):
-            if (dog1 or dog2) in img_dir_list[i]:
+            if dog1  in img_dir_list[i]:
                 dog1_path = img_path + img_dir_list[i] 
-
-        ########20191216ここでストップして寝る。画像のあるファイルをゲットする部分。
-
-
-         
+            else if dog2 in img_dir_list[i]:
+                dog2_path = img_path + img_dir_list[i]    
     except:
         raise FileErroe 
 
