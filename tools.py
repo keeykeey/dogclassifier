@@ -8,12 +8,10 @@ def math(a,b):
 
 class sample():
     def __init__(self,**col):
-        self.col = col 
+        self.data = pd.DataFrame(col) 
 
-    def hold_out():
-        print('aa')
-                
-    
+    def hold_out(percentager):
+        num = len(col) 
 
 
 
@@ -29,12 +27,8 @@ one = [1,2,3,4]
 two = [2,4,6,8]
 three = [3,6,9,12]
 
-a = pd.DataFrame(sample(one=one,two=two,three=three).col)
-print(a)
-
-
-
-
+a = sample(one=one,two=two,three=three)
+print(a.data)
 
 
 
