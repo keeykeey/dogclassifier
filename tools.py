@@ -7,32 +7,24 @@ def math(a,b):
     print(a + b)
 
 #データセットを作り、それをホールドアウト法、交差確認法、一つ抜き法、ブートストラップ法により、教師データと学習データに分割する
-class sample():
+class sample_split():
+    """
+    col : type=dict,辞書のkeyが行の名前、valueが行の各値 
+    """
+
     def __init__(self,**col):
         self.data = pd.DataFrame(col) 
 
-    def hold_out(percentager):
-        num = len(col) 
-
-
-
-
-
-
-
-
-
-
+    def hold_out(self,percentage):
+        return len(self.data)
 
 one = [1,2,3,4]
 two = [2,4,6,8]
 three = [3,6,9,12]
+dict = {'one':one,'two':two,'three':three}
 
-a = sample(one=one,two=two,three=three)
-print(a.data)
-
-
-
+a = sample_split(one=one,two=two,three=three)
+print(a.hold_out(4))
 
 
 
