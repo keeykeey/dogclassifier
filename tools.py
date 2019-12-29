@@ -15,8 +15,10 @@ class sample_split():
     def __init__(self,**col):
         self.data = pd.DataFrame(col) 
 
-    def hold_out(self,percentage):
-        return len(self.data)
+    def hold_out(self,per):
+        num = len(self.data)
+        train = self.data.iloc[0:np.int(((per-1)/per)*num)]
+        return len(self.data),train
 
 one = [1,2,3,4]
 two = [2,4,6,8]
@@ -24,7 +26,6 @@ three = [3,6,9,12]
 dict = {'one':one,'two':two,'three':three}
 
 a = sample_split(one=one,two=two,three=three)
-print(a.hold_out(4))
-
-
+print(a.hold_out(4)[0])
+print(a.hold_out(4)[1])
 
