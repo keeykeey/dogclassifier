@@ -6,6 +6,7 @@ import pandas as pd
 def math(a,b):
     print(a + b)
 
+#データセットを作り、それをホールドアウト法、交差確認法、一つ抜き法、ブートストラップ法により、教師データと学習データに分割する
 class sample():
     def __init__(self,**col):
         self.data = pd.DataFrame(col) 
