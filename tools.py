@@ -16,14 +16,15 @@ class n_sample():
     def n_shuffle(self,seed=0):
         random.seed(seed)
         num = len(self.col)
-        key_list = list(self.col.key())
+        key_list = list(self.col.keys())
         value_list = list(self.col.values())
+
+        shuffled = {}
         for i in range(num):
-            
-
-
-        #    random.shuffle(self.col[i])
-        return self.data 
+            a = value_list[i]
+            random.shuffle(a)
+            shuffled[key_list[i]] = a
+        return pd.DataFrame(shuffled)
 
     def hold_out(self,per):
         num = len(self.data)
@@ -37,8 +38,7 @@ if __name__ =='__main__':
     dict = {'one':one,'two':two,'three':three}
 
     a = n_sample(one=one,two=two,three=three)
-    print(a.col)
-    #print(a.n_shuffle())
+    print(a.n_shuffle())
 
    # print(a.hold_out(40)[0])
    # print(a.hold_out(40)[1])
