@@ -31,6 +31,34 @@ class n_sample():
         train = self.data.iloc[0:np.int(num*per/100)]
         return len(self.data),train
 
+    def cross_validation(self,m):
+        """
+        手元の各クラスのデータをそれぞれm個のグループに分割し、m-1個のグループのデータを使って学習し、残りの一つのグループのデータでテストを行う。
+        m : データセットを分割する数。
+        test_box : テストデータを格納するリスト
+        train_box : 学習データを格納するリスト
+        """
+
+        length = len(self.data)
+        if length % m != 0:
+            length = np.int8(length-(length % m))
+
+        test_box = list()
+        train_box = list()
+
+        start = 0
+        step  = np.int8(length/m)
+        end   = step
+         
+        for i in range(m):
+            test_box.append(self.data.iloc[start:end])
+            train_box.append(self.data.drop(range(start,end)))
+
+            start += step
+            end   += step
+
+        return train_box,test_box
+
 if __name__ =='__main__':
     one = [i for i in range(1,101,10)]
     two = [i for i in range(1,201,20)]
@@ -38,8 +66,14 @@ if __name__ =='__main__':
     dict = {'one':one,'two':two,'three':three}
 
     a = n_sample(one=one,two=two,three=three)
-    print(a.n_shuffle())
+    var1,var2 = a.cross_validation(3)
+    
+    print(var1[1])
 
+   # print("VAR1:\n",var1)
+   # print("VAR2:\n",var2)
+   
+   # print(a.n_shuffle())
    # print(a.hold_out(40)[0])
    # print(a.hold_out(40)[1])
 
