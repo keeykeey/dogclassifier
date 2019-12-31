@@ -37,6 +37,8 @@ class n_sample():
         m : データセットを分割する数。
         test_box : テストデータを格納するリスト
         train_box : 学習データを格納するリスト
+
+        *self.data: pd.DataFrame
         """
 
         length = len(self.data)
@@ -60,20 +62,12 @@ class n_sample():
         return train_box,test_box
 
 if __name__ =='__main__':
-    one = [i for i in range(1,101,10)]
-    two = [i for i in range(1,201,20)]
-    three = [i for i in range(1,301,30)]
+    one = [i for i in range(1,11,1)]
+    two = [i for i in range(11,21,1)]
+    three = [i for i in range(21,31,1)]
     dict = {'one':one,'two':two,'three':three}
 
     a = n_sample(one=one,two=two,three=three)
     var1,var2 = a.cross_validation(3)
-    
-    print(var1[1])
 
-   # print("VAR1:\n",var1)
-   # print("VAR2:\n",var2)
-   
-   # print(a.n_shuffle())
-   # print(a.hold_out(40)[0])
-   # print(a.hold_out(40)[1])
 
